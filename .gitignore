@@ -1,5 +1,5 @@
 .ipynb_checkpoints
 __pycache__
 venv
-temp\accuracy_last
-temp\accuracy_max
+results\accuracy_last
+results\accuracy_max
