@@ -12,13 +12,29 @@ pip install -r requirements.txt
     python main.py
     ```
 
-2. Test loss result from different t1, t2, label and prediction
+2. Train your own example
+    - Multi-classes classification
+        ```
+        from loss import BiTemeredLoss
+        loss_object_bi = BiTemeredLoss(t1=0.2, t2=4.0, multi=True)
+        loss_object_ce = tf.keras.losses.CategoricalCrossentropy()
+        loss = loss_object_bi(labels, predictions)
+        ```
+    - Binary classification
+        ```
+        from loss import BiTemeredLoss
+        loss_object_bi = BiTemeredLoss(t1=0.2, t2=4.0)
+        loss_object_ce = tf.keras.losses.BinaryCrossentropy()
+        loss = loss_object_bi(labels, predictions)
+        ```
+
+3. Test loss result from different t1, t2, label and prediction
     ```
     python loss.py
     ```
     ![BiTemperedLossVisualize](results/BiTemperedLossVisualize.png)
 
-3. Test the effect on mnist traininf for different t1 and t2
+4. Test the effect on mnist traininf for different t1 and t2
     ```
     python eval_exec.py >> TrainingLog.txt # keep the training log
     python LogParser.py # parse the training log
